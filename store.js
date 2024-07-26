@@ -13,7 +13,7 @@ function addProductCard(product) {
 
 // Retrieve products from localStorage and display them
 function initializeProductList(size) {
-    fetch('http://localhost:3000/data')
+    fetch('sneaker-store-brown.vercel.app/api/data')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
