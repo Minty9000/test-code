@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <title>Minty Kicks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
-    <title>Admin Page</title>
+    <link rel="stylesheet" href="store.css">
 </head>
 <body>
     <nav>
@@ -15,14 +15,14 @@
             <div class="title">
                 <h1>Minty Kicks</h1>
             </div>
-            <ul class="icon">
-                <img src="images/Untitled drawing.jpg" width="80px" />
-            </ul>  
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
+            <u1 class="icon">
+                <img src="images\Untitled drawing.jpg" width="80px" />
+            </u1>  
+            <u1 class="menu">
+                <li><a href="#main">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-            </ul>
+            </u1>
         </div>
     </nav>
     <section class="sidebar" id="sidebar">
@@ -31,46 +31,67 @@
             <p>SideMenu</p>
         </div>
         <div class="mainMenu">
-            <a href="index.html"><button>Home</button></a>
+			<a href="index.html"><button>Home</button></a>
             <a href="about.html"><button>About</button></a>
             <a href="contact.html"><button>Contact</button></a>
             <a href="admin.html"><button>Admin</button></a>
-        </div>
+		</div>
         <div class="footer">
             <p>Created by Gilbert Teng | © Minty Kicks 2024 All Rights Reserved.</p>
         </div>
-        <div class="expand" id="expand"><span style="font-size: 40px; cursor: pointer" onclick="openBar()">&#x203A;</span></div>
-        <div class="close" id="close"><span style="font-size: 40px; cursor: pointer" onclick="closeBar()">&lsaquo;</span></div>
+        <div class="expand" id="expand"><span style="font-size: 40px; cursor: pointer"
+        onclick="openBar()">&#x203A;</span></div>
+        <div class="close" id="close"><span style="font-size: 40px; cursor: pointer"
+        onclick="closeBar()">&lsaquo;</span></div>
         <div class="half-circle" id="half-circle"></div>
         <div class="close-circle" id="close-circle"></div>
         <div class="xmark" id="xmark"><button onclick="closeBar()">X</button></div>
     </section>
-    <section class="passwordpage" id="passwordpage">
-        <div class="content">
-            <p>Enter Password:</p>
-            <input type="password" id="password">
-            <button onclick="checkPassword()">Submit</button>
-            <p id="error" class="error"></p>
+    
+
+    <section class="notify">
+        <div class="body">
+            <h1>How To Purchase</h1>
+            <p>Everything listed here is what I currently have in stock, but if there is anything you are looking for just let me know and I'll see if I can source them for you! If your intrested in anything just contact me and send me an offer and we'll work things out!</p>
+            <a href="contact.html">
+                <button>Contact Me</button>
+              </a>
         </div>
     </section>
-    <div class="empty"></div>
-    <div class="adder">
-        <h1>Add Product</h1>
-        <input type="number" id="productSize" placeholder="Product size">
-        <input type="text" id="productName" placeholder="Product Name">
-        <input type="number" id="productPrice" placeholder="Product Price">
-        <input type="file" id="productImage" accept="image/*">
-        <button id="addProductButton">Add Product</button>
-    </div>
     <section class="product">
-        <div class="product-list" id="productList"></div>
+        <div class="main">
+            <h2 class="product-cat">Available</h2>
+            <p>Note: all sizes listed are in mens sizing</p>
+            <form id="sizeNeeded">
+                <label for="sizeSelector">Choose a size:</label>
+                <select id="sizeSelector" >
+                 <option value="0">all sizes</option>
+                 <option value="5">5</option>
+                 <option value="5.5">5.5</option>
+                 <option value="6">6</option>
+                 <option value="6.5">6.5</option>
+                <option value="7">7</option>
+                <option value="7.5">7.5</option>
+                <option value="8">8</option>
+                <option value="8.5">8.5</option>
+                 <option value="9">9</option>
+                 <option value="9.5">9.5</option>
+                <option value="10">10</option>
+                <option value="10.5">10.5</option>
+                <option value="11">11</option>
+                <option value="11.5">11.5</option>
+                <option value="12">12</option>
+                 <option value="12.5">12.5</option>
+                <option value="13">13</option>
+             </select>
+            <button id="searchSize">Search</button>
+            </form>
+            <div class="product-list" id="productList">
+               
+            </div>
+        </div>
+            
     </section>
-    <div class="deleter">
-        <h1>Delete Product</h1>
-        <input type="text" id="index" placeholder="index">
-        <button id="deleteButton">Delete</button>
-    </div>
-    
-    <script src="script.js"></script>
+    <script src="store.js"></script>
 </body>
 </html>
