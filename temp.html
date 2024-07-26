@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        /* Style the modal (background) */
+        .modal {
+            display: block; /* Show the modal by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal content/box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 400px; /* Maximum width of the modal */
+            text-align: center; /* Center the content */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- The Modal -->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+   
+        <p>Enter Password:</p>
+        <input type="password" id="password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-message" class="error"></p>
+    </div>
+</div>
+
+<script>
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById("passwordModal");
+        modal.style.display = "none";
+        document.getElementById("error-message").textContent = "";
+    }
+
+    // Function to check the password
+    function checkPassword() {
+        var correctPassword = "12345";  // Replace with your desired password
+        var userPassword = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message");
+        
+        if (userPassword === correctPassword) {
+            closeModal();
+        } else {
+            errorMessage.textContent = "Incorrect password. Please try again.";
+        }
+    }
+
+    // Prevent users from accessing the page until the correct password is entered
+    window.onload = function() {
+        var modal = document.getElementById("passwordModal");
+        modal.style.display = "block";
+    };
+</script>
+
+</body>
+</html>
