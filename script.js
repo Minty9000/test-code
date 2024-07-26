@@ -38,7 +38,7 @@ function addProductCard(product, indexnum) {
 }
 
 function addProductToServer(product) {
-    fetch('sneaker-store-brown.vercel.app/api/data', {
+    fetch('/api/data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ function addProductToServer(product) {
 }
 
 function initializeProductList() {
-    fetch('sneaker-store-brown.vercel.app/api/data')
+    fetch('/api/data')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -76,7 +76,7 @@ function initializeProductList() {
 }
 
 function deleteProduct(indexnum) {
-    fetch(`sneaker-store-brown.vercel.app/api/data${indexnum}`, {
+    fetch(`/api/data/${indexnum}`, {
         method: 'DELETE'
     })
     .then(response => {

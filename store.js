@@ -13,16 +13,24 @@ function addProductCard(product) {
 
 // Retrieve products from localStorage and display them
 function initializeProductList(size) {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    if(size!=0){
-        products.forEach(function(product){
-            if(product.size==size){
-                addProductCard(product);
-            }});
-    }
-    else{
-        products.forEach(product => addProductCard(product));
-    }
+    fetch('/api/data')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(products => {
+            document.getElementById('productList').innerHTML = '';
+            products.forEach((product, index) => {
+                if (product.size === size||size==0) {
+                    addProductCard(product, index);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }
 
 
